@@ -4,7 +4,7 @@
 import struct
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageOps
 
 ART = Path(__file__).resolve().parents[1] / "Art"
 SAFFRON = (255, 153, 51, 255)
@@ -60,52 +60,56 @@ def fit_square(image: Image.Image, size: int) -> Image.Image:
     return canvas
 
 
-def khanda_mask(image: Image.Image) -> Image.Image:
-    gray = image.convert("L")
-    return gray.point(lambda p: 255 if p < 150 else 0)
-
-
-def make_white_khanda(size: int) -> Image.Image:
+def khanda_symbol_mask(size: int) -> Image.Image:
     src = Image.open(ART / "Khanda_Source.png").convert("RGBA")
-    src = src.crop(src.getbbox())
-    fitted = fit_square(src, int(size * 0.78))
-    mask = khanda_mask(fitted)
-    symbol = Image.new("RGBA", fitted.size, (255, 255, 255, 0))
+    bg = Image.new("RGBA", src.size, src.getpixel((0, 0)))
+    diff = ImageChops.difference(src, bg).convert("L")
+    mask = diff.point(lambda p: 255 if p > 40 else 0)
+    bbox = mask.getbbox()
+    if bbox:
+        mask = mask.crop(bbox)
+    fitted = fit_square(ImageOps.colorize(mask, black="black", white="white").convert("RGBA"), size)
+    return fitted.convert("L").point(lambda p: 255 if p > 10 else 0)
+
+
+def make_civ_khanda(size: int) -> Image.Image:
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    disc = Image.new("RGBA", (size, size), SAFFRON)
+    canvas.paste(disc, (0, 0), circle_mask(size, 0.02))
+
+    ring = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    ring_draw = ImageDraw.Draw(ring)
+    ring_width = max(1, size // 18)
+    pad = max(1, int(size * 0.08))
+    ring_draw.ellipse((pad, pad, size - pad - 1, size - pad - 1), outline=(246, 199, 83, 255), width=ring_width)
+    canvas.alpha_composite(ring)
+
+    symbol_size = max(1, int(size * 0.58))
+    mask = khanda_symbol_mask(symbol_size)
+    symbol = Image.new("RGBA", (symbol_size, symbol_size), (16, 16, 16, 255))
     symbol.putalpha(mask)
-    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    offset = (size - fitted.width) // 2
-    canvas.paste(symbol, (offset, offset), symbol)
-    return apply_circle(canvas, 0.02)
-
-
-def make_colored_khanda(size: int) -> Image.Image:
-    white = make_white_khanda(size)
-    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    canvas.paste(SAFFRON, circle_mask(size, 0.02))
-    # Dark khanda on saffron disc for the 45px default icon.
-    src = Image.open(ART / "Khanda_Source.png").convert("RGBA")
-    src = src.crop(src.getbbox())
-    fitted = fit_square(src, int(size * 0.62))
-    px = fitted.load()
-    symbol = Image.new("RGBA", fitted.size, (0, 0, 0, 0))
-    spx = symbol.load()
-    for y in range(fitted.height):
-        for x in range(fitted.width):
-            r, g, b, a = px[x, y]
-            if r < 150 and g < 150 and b < 150:
-                spx[x, y] = (20, 20, 20, 255)
-    offset = (size - fitted.width) // 2
+    offset = (size - symbol_size) // 2
     canvas.paste(symbol, (offset, offset), symbol)
     return apply_circle(canvas, 0.02)
 
 
 def make_leader_icon(size: int) -> Image.Image:
-    src = Image.open(ART / "Leader_RanjitSingh_256.png").convert("RGBA")
-    inner = fit_square(src, max(1, int(size * 0.88)))
+    src = Image.open(ART / "Leader_RanjitSingh.png").convert("RGBA")
+    crop = src.crop((int(src.width * 0.20), int(src.height * 0.02), int(src.width * 0.84), int(src.height * 0.56)))
+    inner = fit_square(crop, max(1, int(size * 0.88)))
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     offset = (size - inner.width) // 2
     canvas.paste(inner, (offset, offset), inner)
-    return apply_circle(canvas, 0.03)
+    canvas = apply_circle(canvas, 0.04)
+
+    ring = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    ring_draw = ImageDraw.Draw(ring)
+    ring_width = max(1, size // 13)
+    pad = max(1, int(size * 0.07))
+    ring_draw.ellipse((pad, pad, size - pad - 1, size - pad - 1), outline=(234, 174, 55, 255), width=ring_width)
+    ring_draw.ellipse((pad + ring_width, pad + ring_width, size - pad - ring_width - 1, size - pad - ring_width - 1), outline=(83, 54, 24, 230), width=max(1, ring_width // 2))
+    canvas.alpha_composite(ring)
+    return apply_circle(canvas, 0.02)
 
 
 def make_loading_background() -> Image.Image:
@@ -140,6 +144,23 @@ def make_loading_foreground() -> Image.Image:
     return canvas
 
 
+def make_leader_portrait() -> Image.Image:
+    src = Image.open(ART / "Leader_RanjitSingh_Generated.png").convert("RGBA")
+    target_w, target_h = 768, 1024
+    src_ratio = src.width / src.height
+    target_ratio = target_w / target_h
+    if src_ratio > target_ratio:
+        crop_w = int(src.height * target_ratio)
+        left = int(src.width * 0.53 - crop_w / 2)
+        left = max(0, min(left, src.width - crop_w))
+        src = src.crop((left, 0, left + crop_w, src.height))
+    else:
+        crop_h = int(src.width / target_ratio)
+        top = max(0, min(int(src.height * 0.02), src.height - crop_h))
+        src = src.crop((0, top, src.width, top + crop_h))
+    return src.resize((target_w, target_h), Image.Resampling.LANCZOS)
+
+
 def write_icon_set(prefix: str, sizes: list[int], maker) -> None:
     for size in sizes:
         icon = maker(size)
@@ -153,8 +174,14 @@ def main() -> None:
     civ_sizes = [22, 30, 32, 36, 38, 44, 45, 48, 50, 64, 80, 128, 200, 256]
     leader_sizes = [32, 45, 48, 50, 55, 64, 80, 256]
 
+    portrait = make_leader_portrait()
+    portrait.save(ART / "Leader_RanjitSingh.png")
+    portrait.resize((256, 256), Image.Resampling.LANCZOS).save(ART / "Leader_RanjitSingh_256.png")
+    save_dds(ART / "Leader_RanjitSingh.dds", portrait)
+    save_dds(ART / "Leader_RanjitSingh_256.dds", portrait.resize((256, 256), Image.Resampling.LANCZOS))
+
     for size in civ_sizes:
-        icon = make_white_khanda(size) if size != 45 else make_colored_khanda(size)
+        icon = make_civ_khanda(size)
         icon.save(ART / f"Sikh_Civ_{size}.png")
         save_dds(ART / f"Sikh_Civ_{size}.dds", icon)
 
