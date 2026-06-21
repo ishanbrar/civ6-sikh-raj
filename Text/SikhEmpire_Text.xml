@@ -1,81 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
   <LocalizedText>
-    <Replace Tag="LOC_CIVILIZATION_SIKH_EMPIRE_NAME" Language="en_US"><Text>Sikh Empire</Text></Replace>
-    <Replace Tag="LOC_CIVILIZATION_SIKH_EMPIRE_DESCRIPTION" Language="en_US"><Text>Sikh Empire</Text></Replace>
-    <Replace Tag="LOC_CIVILIZATION_SIKH_EMPIRE_ADJECTIVE" Language="en_US"><Text>Sikh</Text></Replace>
-    <Replace Tag="LOC_LEADER_RANJIT_SINGH_NAME" Language="en_US"><Text>Maharaja Ranjit Singh</Text></Replace>
-    <Replace Tag="LOC_LOADING_INFO_LEADER_RANJIT_SINGH" Language="en_US"><Text>Maharaja Ranjit Singh, Lion of the Panjab, your people look to you for strength in war and resolve in spirit. Let the five rivers nourish your cities and your fields, while the Khalsa stands ready to defend the faithful and strike down all who threaten your realm. Rule with courage, balance the temporal sword with the light of faith, and your empire shall be remembered in glory.</Text></Replace>
+    <Row Tag="LOC_CIVILIZATION_SIKH_EMPIRE_NAME" Language="en_US"><Text>Sikh Empire</Text></Row>
+    <Row Tag="LOC_CIVILIZATION_SIKH_EMPIRE_DESCRIPTION" Language="en_US"><Text>Sikh Empire</Text></Row>
+    <Row Tag="LOC_CIVILIZATION_SIKH_EMPIRE_ADJECTIVE" Language="en_US"><Text>Sikh</Text></Row>
+    <Row Tag="LOC_LEADER_RANJIT_SINGH_NAME" Language="en_US"><Text>Maharaja Ranjit Singh</Text></Row>
+    <Row Tag="LOC_LOADING_INFO_LEADER_RANJIT_SINGH" Language="en_US"><Text>Maharaja Ranjit Singh, Lion of the Panjab, your people look to you for strength in war and resolve in spirit. Let the five rivers nourish your cities and your fields, while the Khalsa stands ready to defend the faithful and strike down all who threaten your realm. Rule with courage, balance the temporal sword with the light of faith, and your empire shall be remembered in glory.</Text></Row>
 
-    <Replace Tag="LOC_TRAIT_CIVILIZATION_SIKH_PANJAB_NAME" Language="en_US"><Text>Chardi Kala</Text></Replace>
-    <Replace Tag="LOC_TRAIT_CIVILIZATION_SIKH_PANJAB_DESCRIPTION" Language="en_US"><Text>Cities founded on or adjacent to a river receive +2 [ICON_Food] Food and +1 [ICON_Faith] Faith in the City Center. Farms adjacent to a river receive +1 [ICON_Faith] Faith. Farms adjacent to both a river and a Holy Site receive +1 [ICON_Production] Production. After researching Irrigation, river-adjacent Farms receive an additional +1 [ICON_Food] Food. After researching Civil Engineering, river-adjacent Farms receive +1 [ICON_Production] Production. Floodplains provide +1 [ICON_Faith] Faith. All combat units receive +5 [ICON_Strength] Combat Strength against units of a civilization following a rival majority religion.</Text></Replace>
+    <Row Tag="LOC_TRAIT_CIVILIZATION_SIKH_PANJAB_NAME" Language="en_US"><Text>Chardi Kala</Text></Row>
+    <Row Tag="LOC_TRAIT_CIVILIZATION_SIKH_PANJAB_DESCRIPTION" Language="en_US"><Text>Cities founded on or adjacent to a river receive +2 [ICON_Food] Food and +1 [ICON_Faith] Faith in the City Center. Farms adjacent to a river receive +1 [ICON_Faith] Faith. Farms adjacent to both a river and a Holy Site receive +1 [ICON_Production] Production. After researching Irrigation, river-adjacent Farms receive an additional +1 [ICON_Food] Food. After researching Civil Engineering, river-adjacent Farms receive +1 [ICON_Production] Production. Floodplains provide +1 [ICON_Faith] Faith. All combat units receive +5 [ICON_Strength] Combat Strength against units of a civilization following a rival majority religion.</Text></Row>
 
-    <Replace Tag="LOC_TRAIT_LEADER_SIKH_MIRI_PIRI_NAME" Language="en_US"><Text>Miri-Piri</Text></Replace>
-    <Replace Tag="LOC_TRAIT_LEADER_SIKH_MIRI_PIRI_DESCRIPTION" Language="en_US"><Text>All land combat units ignore combat penalties from being wounded. Defeating enemy units grants [ICON_Faith] Faith equal to 50% of the defeated unit's Combat Strength. Cities receive +15% [ICON_Production] Production toward military units.</Text></Replace>
+    <Row Tag="LOC_TRAIT_LEADER_SIKH_MIRI_PIRI_NAME" Language="en_US"><Text>Miri-Piri</Text></Row>
+    <Row Tag="LOC_TRAIT_LEADER_SIKH_MIRI_PIRI_DESCRIPTION" Language="en_US"><Text>All land combat units ignore combat penalties from being wounded. Defeating enemy units grants [ICON_Faith] Faith equal to 50% of the defeated unit's Combat Strength. Cities receive +15% [ICON_Production] Production toward military units.</Text></Row>
 
-    <Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_SIKH_AKALI_NIHANG_NAME" Language="en_US"><Text>Akali Nihang</Text></Replace>
-    <Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_SIKH_MISLDAR_CAVALRY_NAME" Language="en_US"><Text>Misldar Cavalry</Text></Replace>
-    <Replace Tag="LOC_TRAIT_CIVILIZATION_BUILDING_SIKH_GURDWARA_NAME" Language="en_US"><Text>Gurdwara Sahib</Text></Replace>
+    <Row Tag="LOC_TRAIT_CIVILIZATION_UNIT_SIKH_AKALI_NIHANG_NAME" Language="en_US"><Text>Akali Nihang</Text></Row>
+    <Row Tag="LOC_TRAIT_CIVILIZATION_UNIT_SIKH_MISLDAR_CAVALRY_NAME" Language="en_US"><Text>Misldar Cavalry</Text></Row>
+    <Row Tag="LOC_TRAIT_CIVILIZATION_BUILDING_SIKH_GURDWARA_NAME" Language="en_US"><Text>Gurdwara Sahib</Text></Row>
 
-    <Replace Tag="LOC_UNIT_SIKH_AKALI_NIHANG_NAME" Language="en_US"><Text>Akali Nihang</Text></Replace>
-    <Replace Tag="LOC_UNIT_SIKH_AKALI_NIHANG_DESCRIPTION" Language="en_US"><Text>Sikh unique Medieval melee unit that replaces the Man-at-Arms. Stronger, faster, can be purchased with [ICON_Faith] Faith, ignores combat penalties from being wounded, and gains +5 [ICON_Strength] Combat Strength.</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_AKALI_NIHANG_NAME" Language="en_US"><Text>Akali Discipline</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_AKALI_NIHANG_DESCRIPTION" Language="en_US"><Text>Ignores combat penalties from being wounded and gains +5 [ICON_Strength] Combat Strength.</Text></Replace>
+    <Row Tag="LOC_UNIT_SIKH_AKALI_NIHANG_NAME" Language="en_US"><Text>Akali Nihang</Text></Row>
+    <Row Tag="LOC_UNIT_SIKH_AKALI_NIHANG_DESCRIPTION" Language="en_US"><Text>Sikh unique Medieval melee unit that replaces the Man-at-Arms. Stronger, faster, can be purchased with [ICON_Faith] Faith, ignores combat penalties from being wounded, and gains +5 [ICON_Strength] Combat Strength.</Text></Row>
+    <Row Tag="LOC_ABILITY_SIKH_AKALI_NIHANG_NAME" Language="en_US"><Text>Akali Discipline</Text></Row>
+    <Row Tag="LOC_ABILITY_SIKH_AKALI_NIHANG_DESCRIPTION" Language="en_US"><Text>Ignores combat penalties from being wounded and gains +5 [ICON_Strength] Combat Strength.</Text></Row>
 
-    <Replace Tag="LOC_UNIT_SIKH_MISLDAR_CAVALRY_NAME" Language="en_US"><Text>Misldar Cavalry</Text></Replace>
-    <Replace Tag="LOC_UNIT_SIKH_MISLDAR_CAVALRY_DESCRIPTION" Language="en_US"><Text>Sikh unique Industrial heavy cavalry unit that replaces the Cuirassier. Much stronger and faster, can be purchased with [ICON_Faith] Faith, ignores combat penalties from being wounded, gains +4 [ICON_Strength] Combat Strength, and pillages for only 1 Movement.</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_MISLDAR_CAVALRY_NAME" Language="en_US"><Text>Misldar Charge</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_MISLDAR_CAVALRY_DESCRIPTION" Language="en_US"><Text>Ignores combat penalties from being wounded, gains +4 [ICON_Strength] Combat Strength, and pillages for only 1 Movement.</Text></Replace>
+    <Row Tag="LOC_UNIT_SIKH_MISLDAR_CAVALRY_NAME" Language="en_US"><Text>Misldar Cavalry</Text></Row>
+    <Row Tag="LOC_UNIT_SIKH_MISLDAR_CAVALRY_DESCRIPTION" Language="en_US"><Text>Sikh unique Industrial heavy cavalry unit that replaces the Cuirassier. Much stronger and faster, can be purchased with [ICON_Faith] Faith, ignores combat penalties from being wounded, gains +4 [ICON_Strength] Combat Strength, and pillages for only 1 Movement.</Text></Row>
+    <Row Tag="LOC_ABILITY_SIKH_MISLDAR_CAVALRY_NAME" Language="en_US"><Text>Misldar Charge</Text></Row>
+    <Row Tag="LOC_ABILITY_SIKH_MISLDAR_CAVALRY_DESCRIPTION" Language="en_US"><Text>Ignores combat penalties from being wounded, gains +4 [ICON_Strength] Combat Strength, and pillages for only 1 Movement.</Text></Row>
 
-    <Replace Tag="LOC_BUILDING_SIKH_GURDWARA_SAHIB_NAME" Language="en_US"><Text>Gurdwara Sahib</Text></Replace>
-    <Replace Tag="LOC_BUILDING_SIKH_GURDWARA_SAHIB_DESCRIPTION" Language="en_US"><Text>Sikh unique building that replaces the Temple. Provides +4 [ICON_Faith] Faith, +2 [ICON_Food] Food, +1 Housing, +1 Great Prophet point per turn, and +1 Great General point per turn.</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_KHALSA_DISCIPLINE_NAME" Language="en_US"><Text>Khalsa Discipline</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_KHALSA_DISCIPLINE_DESCRIPTION" Language="en_US"><Text>Ignores combat penalties from being wounded.</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_COMBAT_BONUS_OTHER_RELIGION_NAME" Language="en_US"><Text>Defender of the Panth</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_COMBAT_BONUS_OTHER_RELIGION_DESCRIPTION" Language="en_US"><Text>+5 [ICON_Strength] Combat Strength against units of a civilization following a rival majority religion.</Text></Replace>
+    <Row Tag="LOC_BUILDING_SIKH_GURDWARA_SAHIB_NAME" Language="en_US"><Text>Gurdwara Sahib</Text></Row>
+    <Row Tag="LOC_BUILDING_SIKH_GURDWARA_SAHIB_DESCRIPTION" Language="en_US"><Text>Sikh unique building that replaces the Temple. Provides +4 [ICON_Faith] Faith, +2 [ICON_Food] Food, +1 Housing, +1 Great Prophet point per turn, and +1 Great General point per turn.</Text></Row>
+    <Row Tag="LOC_ABILITY_SIKH_KHALSA_DISCIPLINE_NAME" Language="en_US"><Text>Khalsa Discipline</Text></Row>
+    <Row Tag="LOC_ABILITY_SIKH_KHALSA_DISCIPLINE_DESCRIPTION" Language="en_US"><Text>Ignores combat penalties from being wounded.</Text></Row>
+    <Row Tag="LOC_ABILITY_SIKH_COMBAT_BONUS_OTHER_RELIGION_NAME" Language="en_US"><Text>Defender of the Panth</Text></Row>
+    <Row Tag="LOC_ABILITY_SIKH_COMBAT_BONUS_OTHER_RELIGION_DESCRIPTION" Language="en_US"><Text>+5 [ICON_Strength] Combat Strength against units of a civilization following a rival majority religion.</Text></Row>
 
-    <Replace Tag="LOC_CITY_NAME_LAHORE" Language="en_US"><Text>Lahore</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_AMRITSAR" Language="en_US"><Text>Amritsar</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_GUJRANWALA" Language="en_US"><Text>Gujranwala</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_MULTAN" Language="en_US"><Text>Multan</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_PESHAWAR" Language="en_US"><Text>Peshawar</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_KASHMIR" Language="en_US"><Text>Kashmir</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_ATTOCK" Language="en_US"><Text>Attock</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_RAWALPINDI" Language="en_US"><Text>Rawalpindi</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_SIALKOT" Language="en_US"><Text>Sialkot</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_JALANDHAR" Language="en_US"><Text>Jalandhar</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_LUDHIANA" Language="en_US"><Text>Ludhiana</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_PATIALA" Language="en_US"><Text>Patiala</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_ANANDPUR_SAHIB" Language="en_US"><Text>Anandpur Sahib</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_BATALA" Language="en_US"><Text>Batala</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_KASUR" Language="en_US"><Text>Kasur</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_DERA_GHAZI_KHAN" Language="en_US"><Text>Dera Ghazi Khan</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_DERA_ISMAIL_KHAN" Language="en_US"><Text>Dera Ismail Khan</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_HAZARA" Language="en_US"><Text>Hazara</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_BANNU" Language="en_US"><Text>Bannu</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_KOHAT" Language="en_US"><Text>Kohat</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_JAMMU" Language="en_US"><Text>Jammu</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_SRINAGAR" Language="en_US"><Text>Srinagar</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_ROHTAS" Language="en_US"><Text>Rohtas</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_SHEIKHUPURA" Language="en_US"><Text>Sheikhupura</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_FEROZEPUR" Language="en_US"><Text>Ferozepur</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_GURDASPUR" Language="en_US"><Text>Gurdaspur</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_HOSHIARPUR" Language="en_US"><Text>Hoshiarpur</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_MUZAFFARABAD" Language="en_US"><Text>Muzaffarabad</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_LEH" Language="en_US"><Text>Leh</Text></Replace>
-    <Replace Tag="LOC_CITY_NAME_GILGIT" Language="en_US"><Text>Gilgit</Text></Replace>
+    <Row Tag="LOC_CITY_NAME_LAHORE" Language="en_US"><Text>Lahore</Text></Row>
+    <Row Tag="LOC_CITY_NAME_AMRITSAR" Language="en_US"><Text>Amritsar</Text></Row>
+    <Row Tag="LOC_CITY_NAME_GUJRANWALA" Language="en_US"><Text>Gujranwala</Text></Row>
+    <Row Tag="LOC_CITY_NAME_MULTAN" Language="en_US"><Text>Multan</Text></Row>
+    <Row Tag="LOC_CITY_NAME_PESHAWAR" Language="en_US"><Text>Peshawar</Text></Row>
+    <Row Tag="LOC_CITY_NAME_KASHMIR" Language="en_US"><Text>Kashmir</Text></Row>
+    <Row Tag="LOC_CITY_NAME_ATTOCK" Language="en_US"><Text>Attock</Text></Row>
+    <Row Tag="LOC_CITY_NAME_RAWALPINDI" Language="en_US"><Text>Rawalpindi</Text></Row>
+    <Row Tag="LOC_CITY_NAME_SIALKOT" Language="en_US"><Text>Sialkot</Text></Row>
+    <Row Tag="LOC_CITY_NAME_JALANDHAR" Language="en_US"><Text>Jalandhar</Text></Row>
+    <Row Tag="LOC_CITY_NAME_LUDHIANA" Language="en_US"><Text>Ludhiana</Text></Row>
+    <Row Tag="LOC_CITY_NAME_PATIALA" Language="en_US"><Text>Patiala</Text></Row>
+    <Row Tag="LOC_CITY_NAME_ANANDPUR_SAHIB" Language="en_US"><Text>Anandpur Sahib</Text></Row>
+    <Row Tag="LOC_CITY_NAME_BATALA" Language="en_US"><Text>Batala</Text></Row>
+    <Row Tag="LOC_CITY_NAME_KASUR" Language="en_US"><Text>Kasur</Text></Row>
+    <Row Tag="LOC_CITY_NAME_DERA_GHAZI_KHAN" Language="en_US"><Text>Dera Ghazi Khan</Text></Row>
+    <Row Tag="LOC_CITY_NAME_DERA_ISMAIL_KHAN" Language="en_US"><Text>Dera Ismail Khan</Text></Row>
+    <Row Tag="LOC_CITY_NAME_HAZARA" Language="en_US"><Text>Hazara</Text></Row>
+    <Row Tag="LOC_CITY_NAME_BANNU" Language="en_US"><Text>Bannu</Text></Row>
+    <Row Tag="LOC_CITY_NAME_KOHAT" Language="en_US"><Text>Kohat</Text></Row>
+    <Row Tag="LOC_CITY_NAME_JAMMU" Language="en_US"><Text>Jammu</Text></Row>
+    <Row Tag="LOC_CITY_NAME_SRINAGAR" Language="en_US"><Text>Srinagar</Text></Row>
+    <Row Tag="LOC_CITY_NAME_ROHTAS" Language="en_US"><Text>Rohtas</Text></Row>
+    <Row Tag="LOC_CITY_NAME_SHEIKHUPURA" Language="en_US"><Text>Sheikhupura</Text></Row>
+    <Row Tag="LOC_CITY_NAME_FEROZEPUR" Language="en_US"><Text>Ferozepur</Text></Row>
+    <Row Tag="LOC_CITY_NAME_GURDASPUR" Language="en_US"><Text>Gurdaspur</Text></Row>
+    <Row Tag="LOC_CITY_NAME_HOSHIARPUR" Language="en_US"><Text>Hoshiarpur</Text></Row>
+    <Row Tag="LOC_CITY_NAME_MUZAFFARABAD" Language="en_US"><Text>Muzaffarabad</Text></Row>
+    <Row Tag="LOC_CITY_NAME_LEH" Language="en_US"><Text>Leh</Text></Row>
+    <Row Tag="LOC_CITY_NAME_GILGIT" Language="en_US"><Text>Gilgit</Text></Row>
 
-    <Replace Tag="LOC_NAMED_RIVER_SUTLEJ_NAME" Language="en_US"><Text>Sutlej</Text></Replace>
-    <Replace Tag="LOC_NAMED_RIVER_BEAS_NAME" Language="en_US"><Text>Beas</Text></Replace>
-    <Replace Tag="LOC_NAMED_RIVER_RAVI_NAME" Language="en_US"><Text>Ravi</Text></Replace>
-    <Replace Tag="LOC_NAMED_RIVER_CHENAB_NAME" Language="en_US"><Text>Chenab</Text></Replace>
-    <Replace Tag="LOC_NAMED_RIVER_JHELUM_NAME" Language="en_US"><Text>Jhelum</Text></Replace>
-    <Replace Tag="LOC_NAMED_RIVER_INDUS_SINDHU_NAME" Language="en_US"><Text>Indus</Text></Replace>
-    <Replace Tag="LOC_NAMED_RIVER_GHAGGAR_NAME" Language="en_US"><Text>Ghaggar</Text></Replace>
-
-    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_RANJIT_SINGH_TITLE" Language="en_US"><Text>Maharaja Ranjit Singh</Text></Replace>
-    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_RANJIT_SINGH_SUBTITLE" Language="en_US"><Text>Leader of the Sikh Empire</Text></Replace>
-    <Replace Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_RANJIT_SINGH_CHAPTER_CAPSULE_BODY" Language="en_US"><Text>Ranjit Singh leads a faith-backed military civilization that thrives along rivers. Secure floodplains, settle aggressively on river systems, and convert faith from farms, Gurdwaras, and battlefield victories into pressure.</Text></Replace>
-    <Replace Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SIKH_EMPIRE_CHAPTER_HISTORY_PARA_1" Language="en_US"><Text>The Sikh Empire emerged in the late eighteenth and early nineteenth centuries from the Sikh misls of the Panjab. Under Maharaja Ranjit Singh, Lahore became the center of a powerful state known for cavalry, disciplined armies, religious patronage, and control of the river-fed heartland.</Text></Replace>
+    <Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_RANJIT_SINGH_TITLE" Language="en_US"><Text>Maharaja Ranjit Singh</Text></Row>
+    <Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_RANJIT_SINGH_SUBTITLE" Language="en_US"><Text>Leader of the Sikh Empire</Text></Row>
+    <Row Tag="LOC_PEDIA_LEADERS_PAGE_LEADER_RANJIT_SINGH_CHAPTER_CAPSULE_BODY" Language="en_US"><Text>Ranjit Singh leads a faith-backed military civilization that thrives along rivers. Secure floodplains, settle aggressively on river systems, and convert faith from farms, Gurdwaras, and battlefield victories into pressure.</Text></Row>
+    <Row Tag="LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_SIKH_EMPIRE_CHAPTER_HISTORY_PARA_1" Language="en_US"><Text>The Sikh Empire emerged in the late eighteenth and early nineteenth centuries from the Sikh misls of the Panjab. Under Maharaja Ranjit Singh, Lahore became the center of a powerful state known for cavalry, disciplined armies, religious patronage, and control of the river-fed heartland.</Text></Row>
   </LocalizedText>
 </GameData>
