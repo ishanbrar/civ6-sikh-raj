@@ -4,10 +4,18 @@
 import struct
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageOps
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 ART = Path(__file__).resolve().parents[1] / "Art"
 SAFFRON = (255, 153, 51, 255)
+GOLD = (235, 178, 58, 255)
+GOLD_LIGHT = (255, 214, 105, 255)
+DARK_BLUE = (6, 35, 53, 255)
+DEEP_TEAL = (8, 57, 55, 255)
+DEEP_GREEN = (8, 73, 49, 255)
+PURPLE = (44, 20, 57, 255)
+BLACK = (14, 14, 13, 255)
+CREAM = (246, 235, 202, 255)
 
 
 def save_dds(path: Path, image: Image.Image) -> None:
@@ -58,6 +66,146 @@ def fit_square(image: Image.Image, size: int) -> Image.Image:
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     canvas.paste(resized, ((size - new_w) // 2, (size - new_h) // 2), resized)
     return canvas
+
+
+def scale_icon(image: Image.Image, size: int) -> Image.Image:
+    return image.resize((size, size), Image.Resampling.LANCZOS)
+
+
+def draw_badge_base(size: int, color: tuple[int, int, int, int]) -> Image.Image:
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    mask = circle_mask(size, 0.04)
+    disc = Image.new("RGBA", (size, size), color)
+    canvas.paste(disc, (0, 0), mask)
+
+    # Subtle centered glow keeps the badges from reading as flat squares in Civ's UI.
+    glow = Image.new("L", (size, size), 0)
+    glow_draw = ImageDraw.Draw(glow)
+    glow_draw.ellipse((int(size * 0.08), int(size * 0.08), int(size * 0.92), int(size * 0.92)), fill=125)
+    glow = glow.filter(ImageFilter.GaussianBlur(size * 0.12))
+    glow = ImageChops.multiply(glow, mask)
+    light = Image.new("RGBA", (size, size), (255, 202, 96, 42))
+    canvas = Image.composite(light, canvas, glow)
+
+    draw = ImageDraw.Draw(canvas)
+    outer = int(size * 0.10)
+    draw.ellipse((outer, outer, size - outer, size - outer), outline=GOLD, width=max(3, size // 26))
+    inner = int(size * 0.16)
+    draw.ellipse((inner, inner, size - inner, size - inner), outline=(239, 196, 90, 160), width=max(2, size // 70))
+    return canvas
+
+
+def paste_khanda(canvas: Image.Image, center: tuple[int, int], symbol_size: int, color: tuple[int, int, int, int] = BLACK) -> None:
+    mask = khanda_symbol_mask(symbol_size)
+    symbol = Image.new("RGBA", (symbol_size, symbol_size), color)
+    symbol.putalpha(mask)
+    canvas.paste(symbol, (center[0] - symbol_size // 2, center[1] - symbol_size // 2), symbol)
+
+
+def draw_kirpan(draw: ImageDraw.ImageDraw, start: tuple[int, int], end: tuple[int, int], width: int) -> None:
+    draw.line((start, end), fill=(56, 45, 32, 255), width=width + 6)
+    draw.line((start, end), fill=(226, 236, 231, 255), width=width)
+    draw.line((start[0] + 5, start[1] - 4, end[0] + 5, end[1] - 4), fill=(255, 255, 255, 180), width=max(1, width // 3))
+    draw.ellipse((start[0] - width, start[1] - width, start[0] + width, start[1] + width), fill=GOLD_LIGHT)
+
+
+def bold_font(size: int):
+    for path in (
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/Library/Fonts/Arial Bold.ttf",
+        "/System/Library/Fonts/Supplemental/Helvetica Bold.ttf",
+    ):
+        if Path(path).exists():
+            return ImageFont.truetype(path, size)
+    return ImageFont.load_default()
+
+
+def make_miri_piri_icon(size: int = 256) -> Image.Image:
+    icon = draw_badge_base(size, DARK_BLUE)
+    draw = ImageDraw.Draw(icon)
+    draw_kirpan(draw, (int(size * 0.29), int(size * 0.78)), (int(size * 0.70), int(size * 0.24)), max(5, size // 22))
+    draw_kirpan(draw, (int(size * 0.71), int(size * 0.78)), (int(size * 0.30), int(size * 0.24)), max(5, size // 22))
+    draw.ellipse((int(size * 0.34), int(size * 0.34), int(size * 0.66), int(size * 0.66)), fill=SAFFRON, outline=GOLD_LIGHT, width=max(3, size // 38))
+    paste_khanda(icon, (size // 2, size // 2), int(size * 0.23), BLACK)
+    return icon
+
+
+def make_chardi_icon(size: int = 256) -> Image.Image:
+    return make_civ_khanda(size)
+
+
+def make_nihang_icon(size: int = 256) -> Image.Image:
+    icon = draw_badge_base(size, DARK_BLUE)
+    draw = ImageDraw.Draw(icon)
+    draw.polygon(
+        [(int(size * 0.28), int(size * 0.77)), (int(size * 0.50), int(size * 0.28)), (int(size * 0.72), int(size * 0.77))],
+        fill=(18, 45, 69, 255),
+        outline=GOLD,
+    )
+    draw.ellipse((int(size * 0.32), int(size * 0.26), int(size * 0.68), int(size * 0.45)), outline=GOLD_LIGHT, width=max(3, size // 34))
+    draw.polygon(
+        [(int(size * 0.24), int(size * 0.28)), (int(size * 0.50), int(size * 0.14)), (int(size * 0.76), int(size * 0.28)), (int(size * 0.50), int(size * 0.24))],
+        fill=(240, 198, 81, 255),
+        outline=GOLD_LIGHT,
+    )
+    draw_kirpan(draw, (int(size * 0.22), int(size * 0.80)), (int(size * 0.82), int(size * 0.23)), max(6, size // 18))
+    return icon
+
+
+def make_misldar_icon(size: int = 256) -> Image.Image:
+    icon = draw_badge_base(size, DEEP_TEAL)
+    draw = ImageDraw.Draw(icon)
+    draw.polygon(
+        [(int(size * 0.21), int(size * 0.70)), (int(size * 0.44), int(size * 0.48)), (int(size * 0.68), int(size * 0.57)), (int(size * 0.84), int(size * 0.72)), (int(size * 0.64), int(size * 0.78)), (int(size * 0.49), int(size * 0.74)), (int(size * 0.35), int(size * 0.80))],
+        fill=(29, 24, 19, 255),
+        outline=(111, 87, 46, 255),
+    )
+    draw.ellipse((int(size * 0.42), int(size * 0.23), int(size * 0.58), int(size * 0.39)), fill=(163, 96, 52, 255))
+    draw.polygon(
+        [(int(size * 0.35), int(size * 0.64)), (int(size * 0.50), int(size * 0.40)), (int(size * 0.63), int(size * 0.64))],
+        fill=(24, 57, 79, 255),
+        outline=(12, 24, 31, 255),
+    )
+    draw.arc((int(size * 0.25), int(size * 0.14), int(size * 0.76), int(size * 0.44)), 190, 350, fill=GOLD_LIGHT, width=max(4, size // 28))
+    draw_kirpan(draw, (int(size * 0.24), int(size * 0.80)), (int(size * 0.82), int(size * 0.27)), max(6, size // 19))
+    return icon
+
+
+def make_defender_icon(size: int = 256) -> Image.Image:
+    icon = draw_badge_base(size, PURPLE)
+    draw = ImageDraw.Draw(icon)
+    draw.arc((int(size * 0.22), int(size * 0.20), int(size * 0.82), int(size * 0.78)), 205, 335, fill=GOLD, width=max(8, size // 18))
+    draw.text((int(size * 0.12), int(size * 0.09)), "+5", font=bold_font(size // 5), fill=CREAM, stroke_width=max(1, size // 70), stroke_fill=(20, 10, 26, 255))
+    draw.ellipse((int(size * 0.39), int(size * 0.39), int(size * 0.63), int(size * 0.63)), fill=SAFFRON, outline=GOLD_LIGHT, width=max(2, size // 60))
+    paste_khanda(icon, (int(size * 0.51), int(size * 0.51)), int(size * 0.16), BLACK)
+    return icon
+
+
+def make_gurdwara_icon(size: int = 256) -> Image.Image:
+    icon = draw_badge_base(size, DEEP_GREEN)
+    draw = ImageDraw.Draw(icon)
+    base_y = int(size * 0.72)
+    draw.rectangle((int(size * 0.25), int(size * 0.45), int(size * 0.75), base_y), fill=CREAM, outline=GOLD_LIGHT, width=max(3, size // 45))
+    draw.rounded_rectangle((int(size * 0.34), int(size * 0.30), int(size * 0.66), int(size * 0.55)), radius=size // 12, fill=(239, 187, 75, 255), outline=GOLD_LIGHT, width=max(3, size // 45))
+    draw.rectangle((int(size * 0.33), int(size * 0.57), int(size * 0.67), int(size * 0.61)), fill=GOLD_LIGHT)
+    for x in (0.29, 0.71):
+        cx = int(size * x)
+        draw.rectangle((cx - size // 18, int(size * 0.42), cx + size // 18, base_y), fill=CREAM, outline=GOLD_LIGHT, width=max(2, size // 64))
+        draw.ellipse((cx - size // 18, int(size * 0.33), cx + size // 18, int(size * 0.45)), fill=(248, 203, 89, 255), outline=GOLD_LIGHT)
+        draw.polygon([(cx, int(size * 0.30)), (cx + size // 9, int(size * 0.34)), (cx, int(size * 0.38))], fill=SAFFRON)
+    draw.polygon([(size // 2, int(size * 0.23)), (int(size * 0.61), int(size * 0.28)), (size // 2, int(size * 0.33))], fill=SAFFRON)
+    for x in (0.35, 0.50, 0.65):
+        draw.rectangle((int(size * x) - size // 18, int(size * 0.61), int(size * x) + size // 18, base_y), fill=DARK_BLUE, outline=GOLD_LIGHT)
+    return icon
+
+
+def write_atlas_set(prefix: str, sizes: list[int], makers: list) -> None:
+    for size in sizes:
+        atlas = Image.new("RGBA", (size * len(makers), size), (0, 0, 0, 0))
+        for index, maker in enumerate(makers):
+            atlas.paste(scale_icon(maker(256), size), (index * size, 0))
+        atlas.save(ART / f"{prefix}_{size}.png")
+        save_dds(ART / f"{prefix}_{size}.dds", atlas)
 
 
 def khanda_symbol_mask(size: int) -> Image.Image:
@@ -173,6 +321,7 @@ def write_icon_set(prefix: str, sizes: list[int], maker) -> None:
 def main() -> None:
     civ_sizes = [22, 30, 32, 36, 38, 44, 45, 48, 50, 64, 80, 128, 200, 256]
     leader_sizes = [32, 45, 48, 50, 55, 64, 80, 256]
+    feature_sizes = [32, 38, 50, 80, 256]
 
     portrait = make_leader_portrait()
     portrait.save(ART / "Leader_RanjitSingh.png")
@@ -186,6 +335,9 @@ def main() -> None:
         save_dds(ART / f"Sikh_Civ_{size}.dds", icon)
 
     write_icon_set("Sikh_Leader", leader_sizes, make_leader_icon)
+    write_atlas_set("Sikh_Abilities", feature_sizes, [make_miri_piri_icon, make_chardi_icon, make_misldar_icon, make_defender_icon])
+    write_atlas_set("Sikh_Units", feature_sizes, [make_nihang_icon, make_misldar_icon])
+    write_atlas_set("Sikh_Buildings", feature_sizes, [make_gurdwara_icon])
 
     save_dds(ART / "Leader_RanjitSingh_Background.dds", make_loading_background())
     save_dds(ART / "Leader_RanjitSingh_LoadingForeground.dds", make_loading_foreground())
