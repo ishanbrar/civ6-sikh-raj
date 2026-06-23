@@ -17,6 +17,7 @@
     <Replace Name="ICON_ATLAS_SIKH_CIV" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Civ_256.dds"/>
 
     <Replace Name="ICON_ATLAS_SIKH_LEADER" IconSize="32" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Leader_32.dds"/>
+    <Replace Name="ICON_ATLAS_SIKH_LEADER" IconSize="38" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Leader_38.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_LEADER" IconSize="45" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Leader_45.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_LEADER" IconSize="48" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Leader_48.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_LEADER" IconSize="50" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Leader_50.dds"/>

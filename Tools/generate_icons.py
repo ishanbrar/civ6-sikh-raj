@@ -30,14 +30,15 @@ def save_dds(path: Path, image: Image.Image) -> None:
     struct.pack_into("<I", header, 12, height)
     struct.pack_into("<I", header, 16, width)
     struct.pack_into("<I", header, 20, pitch)
-    struct.pack_into("<I", header, 76, 0x1000)
-    struct.pack_into("<I", header, 80, 32)
-    struct.pack_into("<I", header, 84, 0x41)
+    struct.pack_into("<I", header, 76, 32)
+    struct.pack_into("<I", header, 80, 0x41)
+    struct.pack_into("<I", header, 84, 0)
     struct.pack_into("<I", header, 88, 32)
     struct.pack_into("<I", header, 92, 0x00FF0000)
     struct.pack_into("<I", header, 96, 0x0000FF00)
     struct.pack_into("<I", header, 100, 0x000000FF)
     struct.pack_into("<I", header, 104, 0xFF000000)
+    struct.pack_into("<I", header, 108, 0x1000)
     path.write_bytes(header + image.tobytes("raw", "BGRA"))
 
 
@@ -295,7 +296,7 @@ def write_icon_set(prefix: str, sizes: list[int], maker) -> None:
 
 def main() -> None:
     civ_sizes = [22, 30, 32, 36, 38, 44, 45, 48, 50, 64, 80, 128, 200, 256]
-    leader_sizes = [32, 45, 48, 50, 55, 64, 80, 256]
+    leader_sizes = [32, 38, 45, 48, 50, 55, 64, 80, 256]
     feature_sizes = [32, 38, 50, 80, 256]
 
     portrait = make_leader_portrait()
