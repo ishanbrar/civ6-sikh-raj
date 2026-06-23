@@ -86,7 +86,7 @@ INSERT OR REPLACE INTO LeaderTraits (LeaderType, TraitType) VALUES
 INSERT OR REPLACE INTO LoadingInfo
   (LeaderType, ForegroundImage, BackgroundImage, EraText, LeaderText, PlayDawnOfManAudio, DawnOfManLeaderId)
 VALUES
-  ('LEADER_RANJIT_SINGH', 'Leader_RanjitSingh_LoadingForeground', 'Leader_RanjitSingh_Background', 'LOC_LOADING_INFO_LEADER_RANJIT_SINGH_ERA', 'LOC_LOADING_INFO_LEADER_RANJIT_SINGH', 0, 'LEADER_RANJIT_SINGH');
+  ('LEADER_RANJIT_SINGH', 'Leader_RanjitSingh_LoadingForeground.dds', 'Leader_RanjitSingh_Background.dds', 'LOC_LOADING_INFO_LEADER_RANJIT_SINGH_ERA', 'LOC_LOADING_INFO_LEADER_RANJIT_SINGH', 0, 'LEADER_RANJIT_SINGH');
 
 INSERT OR REPLACE INTO FavoredReligions (LeaderType, ReligionType) VALUES
   ('LEADER_RANJIT_SINGH', 'RELIGION_SIKHISM');

@@ -149,6 +149,57 @@ def make_misldar_icon(size: int = 256) -> Image.Image:
     return supplied_round_icon("Misldar_Cavalry_Icon_Source.png", size, 0.05)
 
 
+def make_nihang_symbol(size: int = 256) -> Image.Image:
+    icon = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(icon)
+    ink = (22, 22, 20, 255)
+    metal = (246, 239, 216, 255)
+    gold = (236, 176, 45, 255)
+    w = max(2, size // 18)
+
+    draw.line((int(size * 0.50), int(size * 0.18), int(size * 0.50), int(size * 0.82)), fill=ink, width=w)
+    draw.polygon(
+        (
+            (int(size * 0.50), int(size * 0.08)),
+            (int(size * 0.38), int(size * 0.25)),
+            (int(size * 0.50), int(size * 0.21)),
+            (int(size * 0.62), int(size * 0.25)),
+        ),
+        fill=metal,
+        outline=ink,
+    )
+    draw.line((int(size * 0.23), int(size * 0.72), int(size * 0.77), int(size * 0.28)), fill=ink, width=w + 3)
+    draw.line((int(size * 0.23), int(size * 0.72), int(size * 0.77), int(size * 0.28)), fill=metal, width=w)
+    draw.arc((int(size * 0.24), int(size * 0.18), int(size * 0.76), int(size * 0.70)), 205, 335, fill=gold, width=max(3, size // 16))
+    draw.ellipse((int(size * 0.32), int(size * 0.38), int(size * 0.68), int(size * 0.74)), outline=ink, width=max(2, size // 22))
+    return icon
+
+
+def make_misldar_symbol(size: int = 256) -> Image.Image:
+    icon = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(icon)
+    ink = (22, 22, 20, 255)
+    metal = (246, 239, 216, 255)
+    gold = (236, 176, 45, 255)
+    w = max(3, size // 18)
+
+    draw.ellipse((int(size * 0.22), int(size * 0.26), int(size * 0.48), int(size * 0.52)), outline=ink, width=w)
+    draw.polygon(
+        (
+            (int(size * 0.44), int(size * 0.38)),
+            (int(size * 0.73), int(size * 0.30)),
+            (int(size * 0.83), int(size * 0.52)),
+            (int(size * 0.52), int(size * 0.57)),
+        ),
+        fill=ink,
+    )
+    draw.arc((int(size * 0.10), int(size * 0.38), int(size * 0.74), int(size * 0.94)), 205, 350, fill=ink, width=w)
+    draw.line((int(size * 0.18), int(size * 0.78), int(size * 0.80), int(size * 0.18)), fill=ink, width=w + 5)
+    draw.line((int(size * 0.18), int(size * 0.78), int(size * 0.80), int(size * 0.18)), fill=metal, width=w)
+    draw.ellipse((int(size * 0.12), int(size * 0.72), int(size * 0.24), int(size * 0.84)), fill=gold, outline=ink, width=max(1, size // 60))
+    return icon
+
+
 def make_defender_icon(size: int = 256) -> Image.Image:
     icon = draw_badge_base(size, PURPLE)
     draw = ImageDraw.Draw(icon)
@@ -238,34 +289,25 @@ def make_leader_icon(size: int) -> Image.Image:
 
 def make_loading_background() -> Image.Image:
     w, h = 1920, 1080
-    bg = Image.new("RGB", (w, h))
-    draw = ImageDraw.Draw(bg)
-    for y in range(h):
-        t = y / (h - 1)
-        r = int(168 - 35 * t)
-        g = int(98 - 25 * t)
-        b = int(42 - 10 * t)
-        draw.line((0, y, w, y), fill=(r, g, b))
-    vig = Image.new("L", (w, h), 0)
-    vd = ImageDraw.Draw(vig)
-    vd.ellipse((-w * 0.1, -h * 0.15, w * 1.1, h * 1.1), fill=210)
-    vig = vig.filter(ImageFilter.GaussianBlur(90))
-    dark = Image.new("RGB", (w, h), (35, 20, 8))
-    return Image.composite(bg, dark, vig).convert("RGBA")
+    src = Image.open(ART / "Leader_RanjitSingh_Loading_Source.png").convert("RGBA")
+    bg = ImageOps.fit(src, (w, h), method=Image.Resampling.LANCZOS, centering=(0.50, 0.42))
+    bg = bg.filter(ImageFilter.GaussianBlur(18))
+    bg = Image.blend(bg, Image.new("RGBA", (w, h), (34, 20, 12, 255)), 0.34)
+
+    scale = min((w * 0.82) / src.width, (h * 0.96) / src.height)
+    fg = src.resize((int(src.width * scale), int(src.height * scale)), Image.Resampling.LANCZOS)
+    x = int(w * 0.58 - fg.width / 2)
+    y = int(h * 0.51 - fg.height / 2)
+    bg.alpha_composite(fg, (x, y))
+
+    shade = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    shade_draw = ImageDraw.Draw(shade)
+    shade_draw.rectangle((0, 0, int(w * 0.40), h), fill=(18, 10, 4, 115))
+    return Image.alpha_composite(bg, shade)
 
 
 def make_loading_foreground() -> Image.Image:
-    w, h = 1920, 1080
-    portrait = Image.open(ART / "Leader_RanjitSingh.png").convert("RGBA")
-    target_h = int(h * 0.98)
-    scale = target_h / portrait.height
-    target_w = int(portrait.width * scale)
-    portrait = portrait.resize((target_w, target_h), Image.Resampling.LANCZOS)
-    canvas = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    x = w - target_w + int(w * 0.03)
-    y = h - target_h
-    canvas.paste(portrait, (x, y), portrait)
-    return canvas
+    return make_loading_background()
 
 
 def make_leader_portrait() -> Image.Image:
@@ -297,7 +339,7 @@ def write_icon_set(prefix: str, sizes: list[int], maker) -> None:
 def main() -> None:
     civ_sizes = [22, 30, 32, 36, 38, 44, 45, 48, 50, 64, 80, 128, 200, 256]
     leader_sizes = [32, 38, 45, 48, 50, 55, 64, 80, 256]
-    feature_sizes = [32, 38, 50, 80, 256]
+    feature_sizes = [22, 30, 32, 38, 50, 80, 256]
 
     portrait = make_leader_portrait()
     portrait.save(ART / "Leader_RanjitSingh.png")
@@ -313,6 +355,7 @@ def main() -> None:
     write_icon_set("Sikh_Leader", leader_sizes, make_leader_icon)
     write_atlas_set("Sikh_Abilities", feature_sizes, [make_miri_piri_icon, make_chardi_icon, make_misldar_icon, make_defender_icon])
     write_atlas_set("Sikh_Units", feature_sizes, [make_nihang_icon, make_misldar_icon])
+    write_atlas_set("Sikh_UnitSymbols", feature_sizes, [make_nihang_symbol, make_misldar_symbol])
     write_atlas_set("Sikh_Buildings", feature_sizes, [make_gurdwara_icon])
 
     save_dds(ART / "Leader_RanjitSingh_Background.dds", make_loading_background())
