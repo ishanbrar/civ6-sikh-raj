@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
   <LocalizedText>
-    <Row Tag="LOC_NAMED_RIVER_SUTLEJ_NAME" Language="en_US"><Text>Sutlej</Text></Row>
-    <Row Tag="LOC_NAMED_RIVER_BEAS_NAME" Language="en_US"><Text>Beas</Text></Row>
-    <Row Tag="LOC_NAMED_RIVER_RAVI_NAME" Language="en_US"><Text>Ravi</Text></Row>
-    <Row Tag="LOC_NAMED_RIVER_CHENAB_NAME" Language="en_US"><Text>Chenab</Text></Row>
-    <Row Tag="LOC_NAMED_RIVER_JHELUM_NAME" Language="en_US"><Text>Jhelum</Text></Row>
-    <Row Tag="LOC_NAMED_RIVER_INDUS_SINDHU_NAME" Language="en_US"><Text>Indus</Text></Row>
-    <Row Tag="LOC_NAMED_RIVER_GHAGGAR_NAME" Language="en_US"><Text>Ghaggar</Text></Row>
+    <Replace Tag="LOC_NAMED_RIVER_SUTLEJ_NAME" Language="en_US"><Text>Sutlej</Text></Replace>
+    <Replace Tag="LOC_NAMED_RIVER_BEAS_NAME" Language="en_US"><Text>Beas</Text></Replace>
+    <Replace Tag="LOC_NAMED_RIVER_RAVI_NAME" Language="en_US"><Text>Ravi</Text></Replace>
+    <Replace Tag="LOC_NAMED_RIVER_CHENAB_NAME" Language="en_US"><Text>Chenab</Text></Replace>
+    <Replace Tag="LOC_NAMED_RIVER_JHELUM_NAME" Language="en_US"><Text>Jhelum</Text></Replace>
+    <Replace Tag="LOC_NAMED_RIVER_INDUS_SINDHU_NAME" Language="en_US"><Text>Indus</Text></Replace>
+    <Replace Tag="LOC_NAMED_RIVER_GHAGGAR_NAME" Language="en_US"><Text>Ghaggar</Text></Replace>
   </LocalizedText>
 </GameData>
