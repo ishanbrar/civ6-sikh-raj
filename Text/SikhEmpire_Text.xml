@@ -5,6 +5,7 @@
     <Replace Tag="LOC_CIVILIZATION_SIKH_EMPIRE_DESCRIPTION" Language="en_US"><Text>Sikh Empire</Text></Replace>
     <Replace Tag="LOC_CIVILIZATION_SIKH_EMPIRE_ADJECTIVE" Language="en_US"><Text>Sikh</Text></Replace>
     <Replace Tag="LOC_LEADER_RANJIT_SINGH_NAME" Language="en_US"><Text>Maharaja Ranjit Singh</Text></Replace>
+    <Replace Tag="LOC_LOADING_INFO_LEADER_RANJIT_SINGH_ERA" Language="en_US"><Text>The Sikh Empire joins the world stage. Let the Panjab's rivers sustain your cities and the Khalsa carry your resolve across the ages.</Text></Replace>
     <Replace Tag="LOC_LOADING_INFO_LEADER_RANJIT_SINGH" Language="en_US"><Text>Maharaja Ranjit Singh, Lion of the Panjab, your people look to you for strength in war and resolve in spirit. Let the five rivers nourish your cities and your fields, while the Khalsa stands ready to defend the faithful and strike down all who threaten your realm. Rule with courage, balance the temporal sword with the light of faith, and your empire shall be remembered in glory.</Text></Replace>
 
     <Replace Tag="LOC_TRAIT_CIVILIZATION_SIKH_PANJAB_NAME" Language="en_US"><Text>Chardi Kala</Text></Replace>

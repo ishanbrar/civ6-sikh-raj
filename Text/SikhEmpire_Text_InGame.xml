@@ -8,5 +8,17 @@
     <Replace Tag="LOC_NAMED_RIVER_JHELUM_NAME" Language="en_US"><Text>Jhelum</Text></Replace>
     <Replace Tag="LOC_NAMED_RIVER_INDUS_SINDHU_NAME" Language="en_US"><Text>Indus</Text></Replace>
     <Replace Tag="LOC_NAMED_RIVER_GHAGGAR_NAME" Language="en_US"><Text>Ghaggar</Text></Replace>
+    <Replace Tag="LOC_NAMED_MOUNTAIN_HIMALAYA_SIKH_NAME" Language="en_US"><Text>Himalaya</Text></Replace>
+    <Replace Tag="LOC_NAMED_MOUNTAIN_PIR_PANJAL_NAME" Language="en_US"><Text>Pir Panjal</Text></Replace>
+    <Replace Tag="LOC_NAMED_MOUNTAIN_SALT_RANGE_NAME" Language="en_US"><Text>Salt Range</Text></Replace>
+    <Replace Tag="LOC_NAMED_MOUNTAIN_ZANSKAR_NAME" Language="en_US"><Text>Zanskar</Text></Replace>
+    <Replace Tag="LOC_NAMED_LAKE_DAL_NAME" Language="en_US"><Text>Dal Lake</Text></Replace>
+    <Replace Tag="LOC_NAMED_LAKE_WULAR_NAME" Language="en_US"><Text>Wular Lake</Text></Replace>
+    <Replace Tag="LOC_NAMED_LAKE_PANGONG_TSO_NAME" Language="en_US"><Text>Pangong Tso</Text></Replace>
+    <Replace Tag="LOC_NAMED_DESERT_THAL_NAME" Language="en_US"><Text>Thal Desert</Text></Replace>
+    <Replace Tag="LOC_NAMED_DESERT_CHOLISTAN_NAME" Language="en_US"><Text>Cholistan Desert</Text></Replace>
+    <Replace Tag="LOC_NAMED_VOLCANO_NANGA_PARBAT_NAME" Language="en_US"><Text>Nanga Parbat</Text></Replace>
+    <Replace Tag="LOC_NAMED_SEA_GULF_OF_KUTCH_NAME" Language="en_US"><Text>Gulf of Kutch</Text></Replace>
+    <Replace Tag="LOC_NAMED_SEA_ARABIAN_SEA_SIKH_NAME" Language="en_US"><Text>Arabian Sea</Text></Replace>
   </LocalizedText>
 </GameData>
