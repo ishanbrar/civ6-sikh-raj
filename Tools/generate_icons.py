@@ -311,18 +311,18 @@ def make_loading_foreground() -> Image.Image:
 
 
 def make_leader_portrait() -> Image.Image:
-    src = Image.open(ART / "Leader_RanjitSingh_Generated.png").convert("RGBA")
+    src = Image.open(ART / "Leader_RanjitSingh_Loading_Source.png").convert("RGBA")
     target_w, target_h = 768, 1024
     src_ratio = src.width / src.height
     target_ratio = target_w / target_h
     if src_ratio > target_ratio:
         crop_w = int(src.height * target_ratio)
-        left = int(src.width * 0.53 - crop_w / 2)
+        left = int(src.width * 0.50 - crop_w / 2)
         left = max(0, min(left, src.width - crop_w))
         src = src.crop((left, 0, left + crop_w, src.height))
     else:
         crop_h = int(src.width / target_ratio)
-        top = max(0, min(int(src.height * 0.02), src.height - crop_h))
+        top = max(0, min(int(src.height * 0.00), src.height - crop_h))
         src = src.crop((0, top, src.width, top + crop_h))
     return src.resize((target_w, target_h), Image.Resampling.LANCZOS)
 
