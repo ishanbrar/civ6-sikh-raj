@@ -243,7 +243,7 @@ def make_civ_khanda(size: int) -> Image.Image:
 
 def make_leader_icon(size: int) -> Image.Image:
     src = Image.open(ART / "Leader_RanjitSingh_Headshot_Source.png").convert("RGBA")
-    crop = src.crop((int(src.width * 0.23), int(src.height * 0.00), int(src.width * 0.83), int(src.height * 0.68)))
+    crop = src.crop((int(src.width * 0.16), int(src.height * 0.00), int(src.width * 0.90), int(src.height * 0.78)))
     inner = fit_square(crop, max(1, int(size * 0.88)))
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     offset = (size - inner.width) // 2
