@@ -204,6 +204,18 @@ def make_civ_khanda(size: int) -> Image.Image:
     return apply_circle(canvas, 0.02)
 
 
+def make_civ_symbol_icon(size: int) -> Image.Image:
+    """Tintable jersey icon: opaque Khanda glyph, transparent outside."""
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    symbol_size = max(1, int(size * 0.72))
+    mask = khanda_symbol_mask(symbol_size)
+    symbol = Image.new("RGBA", (symbol_size, symbol_size), (255, 255, 255, 255))
+    symbol.putalpha(mask)
+    offset = (size - symbol_size) // 2
+    canvas.paste(symbol, (offset, offset), symbol)
+    return canvas
+
+
 def make_leader_icon(size: int) -> Image.Image:
     src = Image.open(ART / "Leader_RanjitSingh_Headshot_Source.png").convert("RGBA")
     crop = src.crop((int(src.width * 0.10), int(src.height * 0.00), int(src.width * 0.96), int(src.height * 0.88)))
@@ -293,7 +305,7 @@ def main() -> None:
     save_dds(ART / "Leader_RanjitSingh_256.dds", portrait.resize((256, 256), Image.Resampling.LANCZOS))
 
     for size in civ_sizes:
-        icon = make_civ_khanda(size)
+        icon = make_civ_symbol_icon(size)
         icon.save(ART / f"Sikh_Civ_{size}.png")
         save_dds(ART / f"Sikh_Civ_{size}.dds", icon)
 
