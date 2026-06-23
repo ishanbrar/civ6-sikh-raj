@@ -4,7 +4,7 @@ A custom Civilization VI mod that adds the Sikh Empire led by Maharaja Ranjit Si
 
 ## Current Working Version
 
-`v27` is the verified working build. Leader art, civilization icons, unit icons, building icons, ability icons, and setup-screen assets are loading correctly in Civilization VI after the DDS atlas encoding fix.
+`v30` is the fully functional verified build. Civilization selection art, Dawn of Man loading art, civilization icons, leader icons, unit icons, building icons, ability icons, custom named places, unique units, and gameplay database loading are working correctly in Civilization VI with `Rise & Fall` and `Gathering Storm`.
 
 ## Features
 
