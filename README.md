@@ -2,6 +2,10 @@
 
 A custom Civilization VI mod that adds the Sikh Empire led by Maharaja Ranjit Singh as a high-power military, faith, and food civilization for `Rise & Fall` and `Gathering Storm`.
 
+## Current Working Version
+
+`v27` is the verified working build. Leader art, civilization icons, unit icons, building icons, ability icons, and setup-screen assets are loading correctly in Civilization VI after the DDS atlas encoding fix.
+
 ## Features
 
 - New civilization: `Sikh Empire`
