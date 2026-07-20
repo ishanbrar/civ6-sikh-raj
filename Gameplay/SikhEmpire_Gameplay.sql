@@ -1,6 +1,82 @@
 -- Sikh Empire: Ranjit Singh
 -- Gameplay database package for Civilization VI with Rise & Fall / Gathering Storm.
 
+-- Standard Rules lacks the named-place schema added by later rulesets. Define a
+-- harmless compatibility shell so the mod can load under every ruleset.
+INSERT OR IGNORE INTO Kinds (Kind, Hash) VALUES
+  ('KIND_NAMED_RIVER', 177201),
+  ('KIND_NAMED_MOUNTAIN', 177202),
+  ('KIND_NAMED_LAKE', 177203),
+  ('KIND_NAMED_DESERT', 177204),
+  ('KIND_NAMED_VOLCANO', 177205),
+  ('KIND_NAMED_SEA', 177206);
+
+CREATE TABLE IF NOT EXISTS NamedRivers (
+  NamedRiverType TEXT NOT NULL PRIMARY KEY,
+  Name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS NamedRiverCivilizations (
+  NamedRiverType TEXT NOT NULL,
+  CivilizationType TEXT NOT NULL,
+  PRIMARY KEY (NamedRiverType, CivilizationType)
+);
+
+CREATE TABLE IF NOT EXISTS NamedMountains (
+  NamedMountainType TEXT NOT NULL PRIMARY KEY,
+  Name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS NamedMountainCivilizations (
+  NamedMountainType TEXT NOT NULL,
+  CivilizationType TEXT NOT NULL,
+  PRIMARY KEY (NamedMountainType, CivilizationType)
+);
+
+CREATE TABLE IF NOT EXISTS NamedLakes (
+  NamedLakeType TEXT NOT NULL PRIMARY KEY,
+  Name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS NamedLakeCivilizations (
+  NamedLakeType TEXT NOT NULL,
+  CivilizationType TEXT NOT NULL,
+  PRIMARY KEY (NamedLakeType, CivilizationType)
+);
+
+CREATE TABLE IF NOT EXISTS NamedDeserts (
+  NamedDesertType TEXT NOT NULL PRIMARY KEY,
+  Name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS NamedDesertCivilizations (
+  NamedDesertType TEXT NOT NULL,
+  CivilizationType TEXT NOT NULL,
+  PRIMARY KEY (NamedDesertType, CivilizationType)
+);
+
+CREATE TABLE IF NOT EXISTS NamedVolcanoes (
+  NamedVolcanoType TEXT NOT NULL PRIMARY KEY,
+  Name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS NamedVolcanoCivilizations (
+  NamedVolcanoType TEXT NOT NULL,
+  CivilizationType TEXT NOT NULL,
+  PRIMARY KEY (NamedVolcanoType, CivilizationType)
+);
+
+CREATE TABLE IF NOT EXISTS NamedSeas (
+  NamedSeaType TEXT NOT NULL PRIMARY KEY,
+  Name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS NamedSeaCivilizations (
+  NamedSeaType TEXT NOT NULL,
+  CivilizationType TEXT NOT NULL,
+  PRIMARY KEY (NamedSeaType, CivilizationType)
+);
+
 INSERT OR REPLACE INTO Types (Type, Hash, Kind) VALUES
   ('CIVILIZATION_SIKH_EMPIRE', -1101071576, 'KIND_CIVILIZATION'),
   ('LEADER_RANJIT_SINGH', 750721183, 'KIND_LEADER'),
@@ -303,8 +379,16 @@ VALUES
   ('UNIT_SIKH_MISLDAR_CAVALRY', 340, 5, 5, 2, 1, 'DOMAIN_LAND', 72, 'FORMATION_CLASS_LAND_COMBAT', 'PROMOTION_CLASS_HEAVY_CAVALRY', 'ADVISOR_CONQUEST', 'LOC_UNIT_SIKH_MISLDAR_CAVALRY_NAME', 'LOC_UNIT_SIKH_MISLDAR_CAVALRY_DESCRIPTION', 'YIELD_FAITH', 'TECH_COMBUSTION', 'TECH_BALLISTICS', 'TRAIT_CIVILIZATION_UNIT_SIKH_MISLDAR_CAVALRY');
 
 INSERT OR REPLACE INTO UnitReplaces (CivUniqueUnitType, ReplacesUnitType) VALUES
-  ('UNIT_SIKH_AKALI_NIHANG', 'UNIT_MAN_AT_ARMS'),
-  ('UNIT_SIKH_MISLDAR_CAVALRY', 'UNIT_CUIRASSIER');
+  ('UNIT_SIKH_AKALI_NIHANG', 'UNIT_MAN_AT_ARMS');
+
+INSERT OR REPLACE INTO UnitReplaces (CivUniqueUnitType, ReplacesUnitType)
+SELECT 'UNIT_SIKH_MISLDAR_CAVALRY', 'UNIT_CUIRASSIER'
+WHERE EXISTS (SELECT 1 FROM Units WHERE UnitType = 'UNIT_CUIRASSIER');
+
+INSERT OR REPLACE INTO UnitReplaces (CivUniqueUnitType, ReplacesUnitType)
+SELECT 'UNIT_SIKH_MISLDAR_CAVALRY', 'UNIT_CAVALRY'
+WHERE NOT EXISTS (SELECT 1 FROM Units WHERE UnitType = 'UNIT_CUIRASSIER')
+  AND EXISTS (SELECT 1 FROM Units WHERE UnitType = 'UNIT_CAVALRY');
 
 INSERT OR REPLACE INTO UnitUpgrades (Unit, UpgradeUnit) VALUES
   ('UNIT_SIKH_AKALI_NIHANG', 'UNIT_MUSKETMAN'),
