@@ -37,7 +37,6 @@ A custom Civilization VI mod that adds the Sikh Empire led by Maharaja Ranjit Si
 - Farms adjacent to a river receive +1 Faith
 - Farms adjacent to both a river and a Holy Site receive +1 Production
 - After researching `Irrigation`, river-adjacent Farms receive an additional +1 Food
-- After researching `Civil Engineering`, river-adjacent Farms receive +1 Production
 - Floodplains provide +1 Faith
 - All combat units receive +5 Combat Strength against units of a civilization following a rival majority religion
 

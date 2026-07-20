@@ -275,16 +275,7 @@ def make_leader_icon(size: int) -> Image.Image:
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     offset = (size - inner.width) // 2
     canvas.paste(inner, (offset, offset), inner)
-    canvas = apply_circle(canvas, 0.04)
-
-    ring = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    ring_draw = ImageDraw.Draw(ring)
-    ring_width = max(1, size // 13)
-    pad = max(1, int(size * 0.07))
-    ring_draw.ellipse((pad, pad, size - pad - 1, size - pad - 1), outline=(234, 174, 55, 255), width=ring_width)
-    ring_draw.ellipse((pad + ring_width, pad + ring_width, size - pad - ring_width - 1, size - pad - ring_width - 1), outline=(83, 54, 24, 230), width=max(1, ring_width // 2))
-    canvas.alpha_composite(ring)
-    return apply_circle(canvas, 0.02)
+    return apply_circle(canvas, 0.04)
 
 
 def make_loading_background() -> Image.Image:
