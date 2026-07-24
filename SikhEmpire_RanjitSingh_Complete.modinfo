@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="8f38f0a1-9f2c-49ac-9f8a-4dd7c9a88061" version="33">
+<Mod id="8f38f0a1-9f2c-49ac-9f8a-4dd7c9a88061" version="34">
   <Properties>
     <Name>Sikh Empire: Ranjit Singh</Name>
     <Teaser>Lead the Sikh Empire with Miri-Piri, Chardi Kala, and the fertile Panjab.</Teaser>
@@ -127,15 +127,7 @@
       </Properties>
       <File>Icons/SikhEmpire_Icons.xml</File>
     </UpdateIcons>
-    <AddUserInterfaces id="SikhEmpire_MusicUI">
-      <Properties>
-        <Context>InGame</Context>
-      </Properties>
-      <File>UI/SikhEmpire_Music.xml</File>
-    </AddUserInterfaces>
     <ImportFiles id="SikhEmpire_Art">
-      <File>UI/SikhEmpire_Music.xml</File>
-      <File>UI/SikhEmpire_Music.lua</File>
       <File>Art/Leader_RanjitSingh.dds</File>
       <File>Art/Leader_RanjitSingh_Background.dds</File>
       <File>Art/Leader_RanjitSingh_LoadingForeground.dds</File>
@@ -207,8 +199,6 @@
     <File>Text/SikhEmpire_Text.xml</File>
     <File>Text/SikhEmpire_Text_InGame.xml</File>
     <File>Icons/SikhEmpire_Icons.xml</File>
-    <File>UI/SikhEmpire_Music.xml</File>
-    <File>UI/SikhEmpire_Music.lua</File>
     <File>Docs/DesignNotes.md</File>
     <File>Art/Leader_RanjitSingh.dds</File>
     <File>Art/Leader_RanjitSingh_Background.dds</File>
