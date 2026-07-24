@@ -31,6 +31,7 @@
     <Replace Name="ICON_ATLAS_SIKH_UNITS" IconSize="32" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_Units_32.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNITS" IconSize="38" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_Units_38.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNITS" IconSize="50" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_Units_50.dds"/>
+    <Replace Name="ICON_ATLAS_SIKH_UNITS" IconSize="64" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_Units_64.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNITS" IconSize="80" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_Units_80.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNITS" IconSize="256" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_Units_256.dds"/>
 
@@ -39,6 +40,7 @@
     <Replace Name="ICON_ATLAS_SIKH_UNIT_FLAGS" IconSize="32" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitFlags_32.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNIT_FLAGS" IconSize="38" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitFlags_38.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNIT_FLAGS" IconSize="50" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitFlags_50.dds"/>
+    <Replace Name="ICON_ATLAS_SIKH_UNIT_FLAGS" IconSize="64" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitFlags_64.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNIT_FLAGS" IconSize="80" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitFlags_80.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNIT_FLAGS" IconSize="256" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitFlags_256.dds"/>
 
@@ -47,6 +49,7 @@
     <Replace Name="ICON_ATLAS_SIKH_UNIT_SYMBOLS" IconSize="32" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitSymbols_32.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNIT_SYMBOLS" IconSize="38" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitSymbols_38.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNIT_SYMBOLS" IconSize="50" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitSymbols_50.dds"/>
+    <Replace Name="ICON_ATLAS_SIKH_UNIT_SYMBOLS" IconSize="64" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitSymbols_64.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNIT_SYMBOLS" IconSize="80" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitSymbols_80.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_UNIT_SYMBOLS" IconSize="256" IconsPerRow="2" IconsPerColumn="1" Filename="Sikh_UnitSymbols_256.dds"/>
 
@@ -55,6 +58,7 @@
     <Replace Name="ICON_ATLAS_SIKH_BUILDINGS" IconSize="32" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Buildings_32.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_BUILDINGS" IconSize="38" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Buildings_38.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_BUILDINGS" IconSize="50" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Buildings_50.dds"/>
+    <Replace Name="ICON_ATLAS_SIKH_BUILDINGS" IconSize="64" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Buildings_64.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_BUILDINGS" IconSize="80" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Buildings_80.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_BUILDINGS" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="Sikh_Buildings_256.dds"/>
 
@@ -63,6 +67,7 @@
     <Replace Name="ICON_ATLAS_SIKH_ABILITIES" IconSize="32" IconsPerRow="4" IconsPerColumn="1" Filename="Sikh_Abilities_32.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_ABILITIES" IconSize="38" IconsPerRow="4" IconsPerColumn="1" Filename="Sikh_Abilities_38.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_ABILITIES" IconSize="50" IconsPerRow="4" IconsPerColumn="1" Filename="Sikh_Abilities_50.dds"/>
+    <Replace Name="ICON_ATLAS_SIKH_ABILITIES" IconSize="64" IconsPerRow="4" IconsPerColumn="1" Filename="Sikh_Abilities_64.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_ABILITIES" IconSize="80" IconsPerRow="4" IconsPerColumn="1" Filename="Sikh_Abilities_80.dds"/>
     <Replace Name="ICON_ATLAS_SIKH_ABILITIES" IconSize="256" IconsPerRow="4" IconsPerColumn="1" Filename="Sikh_Abilities_256.dds"/>
   </IconTextureAtlases>
@@ -70,12 +75,12 @@
     <Replace Name="ICON_CIVILIZATION_SIKH_EMPIRE" Atlas="ICON_ATLAS_SIKH_CIV" Index="0"/>
     <Replace Name="ICON_LEADER_RANJIT_SINGH" Atlas="ICON_ATLAS_SIKH_LEADER" Index="0"/>
     <Replace Name="ICON_UNIT_SIKH_AKALI_NIHANG" Atlas="ICON_ATLAS_SIKH_UNIT_FLAGS" Index="0"/>
-    <Replace Name="ICON_UNIT_SIKH_AKALI_NIHANG_WHITE" OtherName="ICON_UNIT_MAN_AT_ARMS_WHITE"/>
-    <Replace Name="ICON_UNIT_SIKH_AKALI_NIHANG_BLACK" OtherName="ICON_UNIT_MAN_AT_ARMS_BLACK"/>
+    <Replace Name="ICON_UNIT_SIKH_AKALI_NIHANG_WHITE" Atlas="ICON_ATLAS_SIKH_UNIT_SYMBOLS" Index="0"/>
+    <Replace Name="ICON_UNIT_SIKH_AKALI_NIHANG_BLACK" Atlas="ICON_ATLAS_SIKH_UNIT_SYMBOLS" Index="0"/>
     <Replace Name="ICON_UNIT_SIKH_AKALI_NIHANG_PORTRAIT" Atlas="ICON_ATLAS_SIKH_UNITS" Index="0"/>
     <Replace Name="ICON_UNIT_SIKH_MISLDAR_CAVALRY" Atlas="ICON_ATLAS_SIKH_UNIT_FLAGS" Index="1"/>
-    <Replace Name="ICON_UNIT_SIKH_MISLDAR_CAVALRY_WHITE" OtherName="ICON_UNIT_CAVALRY_WHITE"/>
-    <Replace Name="ICON_UNIT_SIKH_MISLDAR_CAVALRY_BLACK" OtherName="ICON_UNIT_CAVALRY_BLACK"/>
+    <Replace Name="ICON_UNIT_SIKH_MISLDAR_CAVALRY_WHITE" Atlas="ICON_ATLAS_SIKH_UNIT_SYMBOLS" Index="1"/>
+    <Replace Name="ICON_UNIT_SIKH_MISLDAR_CAVALRY_BLACK" Atlas="ICON_ATLAS_SIKH_UNIT_SYMBOLS" Index="1"/>
     <Replace Name="ICON_UNIT_SIKH_MISLDAR_CAVALRY_PORTRAIT" Atlas="ICON_ATLAS_SIKH_UNITS" Index="1"/>
     <Replace Name="ICON_BUILDING_SIKH_GURDWARA_SAHIB" Atlas="ICON_ATLAS_SIKH_BUILDINGS" Index="0"/>
     <Replace Name="ICON_ABILITY_SIKH_KHALSA_DISCIPLINE" Atlas="ICON_ATLAS_SIKH_ABILITIES" Index="0"/>

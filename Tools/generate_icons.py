@@ -353,7 +353,7 @@ def write_icon_set(prefix: str, sizes: list[int], maker) -> None:
 def main() -> None:
     civ_sizes = [22, 30, 32, 36, 38, 44, 45, 48, 50, 64, 80, 128, 200, 256]
     leader_sizes = [32, 38, 45, 48, 50, 55, 64, 80, 256]
-    feature_sizes = [22, 30, 32, 38, 50, 80, 256]
+    feature_sizes = [22, 30, 32, 38, 50, 64, 80, 256]
 
     portrait = make_leader_portrait()
     portrait.save(ART / "Leader_RanjitSingh.png")
