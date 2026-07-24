@@ -4,7 +4,7 @@
 import struct
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont, ImageOps
+from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 
 ART = Path(__file__).resolve().parents[1] / "Art"
 SAFFRON = (255, 153, 51, 255)
@@ -147,6 +147,29 @@ def make_nihang_icon(size: int = 256) -> Image.Image:
 
 def make_misldar_icon(size: int = 256) -> Image.Image:
     return supplied_round_icon("Misldar_Cavalry_Icon_Source.png", size, 0.05)
+
+
+def cropped_unit_flag(filename: str, crop: tuple[float, float, float, float], size: int = 256) -> Image.Image:
+    src = Image.open(ART / filename).convert("RGBA")
+    box = (
+        int(src.width * crop[0]),
+        int(src.height * crop[1]),
+        int(src.width * crop[2]),
+        int(src.height * crop[3]),
+    )
+    icon = fit_square(src.crop(box), size)
+    icon = ImageEnhance.Brightness(icon).enhance(1.32)
+    icon = ImageEnhance.Contrast(icon).enhance(1.20)
+    icon = ImageEnhance.Color(icon).enhance(1.08)
+    return apply_circle(icon, 0.04)
+
+
+def make_nihang_flag_icon(size: int = 256) -> Image.Image:
+    return cropped_unit_flag("Akali_Nihang_Icon_Source.png", (0.15, 0.04, 0.88, 0.78), size)
+
+
+def make_misldar_flag_icon(size: int = 256) -> Image.Image:
+    return cropped_unit_flag("Misldar_Cavalry_Icon_Source.png", (0.02, 0.03, 0.86, 0.82), size)
 
 
 def make_nihang_symbol(size: int = 256) -> Image.Image:
@@ -346,6 +369,7 @@ def main() -> None:
     write_icon_set("Sikh_Leader", leader_sizes, make_leader_icon)
     write_atlas_set("Sikh_Abilities", feature_sizes, [make_miri_piri_icon, make_chardi_icon, make_misldar_icon, make_defender_icon])
     write_atlas_set("Sikh_Units", feature_sizes, [make_nihang_icon, make_misldar_icon])
+    write_atlas_set("Sikh_UnitFlags", feature_sizes, [make_nihang_flag_icon, make_misldar_flag_icon])
     write_atlas_set("Sikh_UnitSymbols", feature_sizes, [make_nihang_symbol, make_misldar_symbol])
     write_atlas_set("Sikh_Buildings", feature_sizes, [make_gurdwara_icon])
 
