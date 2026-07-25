@@ -172,6 +172,24 @@ def make_misldar_flag_icon(size: int = 256) -> Image.Image:
     return cropped_unit_flag("Misldar_Cavalry_Icon_Source.png", (0.02, 0.03, 0.86, 0.82), size)
 
 
+def make_unit_flag_stencil(symbol_maker, size: int = 256) -> Image.Image:
+    symbol = symbol_maker(size).convert("RGBA")
+    alpha = symbol.getchannel("A")
+    icon = Image.new("RGBA", (size, size), (255, 255, 255, 0))
+    stencil = Image.new("RGBA", (size, size), (255, 255, 255, 255))
+    stencil.putalpha(alpha)
+    icon.alpha_composite(stencil)
+    return icon
+
+
+def make_nihang_flag_stencil(size: int = 256) -> Image.Image:
+    return make_unit_flag_stencil(make_nihang_symbol, size)
+
+
+def make_misldar_flag_stencil(size: int = 256) -> Image.Image:
+    return make_unit_flag_stencil(make_misldar_symbol, size)
+
+
 def make_nihang_symbol(size: int = 256) -> Image.Image:
     icon = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     draw = ImageDraw.Draw(icon)
@@ -369,7 +387,7 @@ def main() -> None:
     write_icon_set("Sikh_Leader", leader_sizes, make_leader_icon)
     write_atlas_set("Sikh_Abilities", feature_sizes, [make_miri_piri_icon, make_chardi_icon, make_misldar_icon, make_defender_icon])
     write_atlas_set("Sikh_Units", feature_sizes, [make_nihang_icon, make_misldar_icon])
-    write_atlas_set("Sikh_UnitFlags", feature_sizes, [make_nihang_flag_icon, make_misldar_flag_icon])
+    write_atlas_set("Sikh_UnitFlags", feature_sizes, [make_nihang_flag_stencil, make_misldar_flag_stencil])
     write_atlas_set("Sikh_UnitSymbols", feature_sizes, [make_nihang_symbol, make_misldar_symbol])
     write_atlas_set("Sikh_Buildings", feature_sizes, [make_gurdwara_icon])
 
