@@ -172,22 +172,29 @@ def make_misldar_flag_icon(size: int = 256) -> Image.Image:
     return cropped_unit_flag("Misldar_Cavalry_Icon_Source.png", (0.02, 0.03, 0.86, 0.82), size)
 
 
-def make_unit_flag_stencil(symbol_maker, size: int = 256) -> Image.Image:
-    symbol = symbol_maker(size).convert("RGBA")
-    alpha = symbol.getchannel("A")
+def make_unit_flag_from_source(filename: str, size: int = 256) -> Image.Image:
+    source = Image.open(ART / filename).convert("RGBA")
+    bbox = source.getchannel("A").getbbox()
+    if bbox:
+        source = source.crop(bbox)
+
+    target = max(1, int(size * 0.90))
+    scale = min(target / source.width, target / source.height)
+    new_w = max(1, int(source.width * scale))
+    new_h = max(1, int(source.height * scale))
+    resized = source.resize((new_w, new_h), Image.Resampling.LANCZOS)
+
     icon = Image.new("RGBA", (size, size), (255, 255, 255, 0))
-    stencil = Image.new("RGBA", (size, size), (255, 255, 255, 255))
-    stencil.putalpha(alpha)
-    icon.alpha_composite(stencil)
+    icon.paste(resized, ((size - new_w) // 2, (size - new_h) // 2), resized)
     return icon
 
 
 def make_nihang_flag_stencil(size: int = 256) -> Image.Image:
-    return make_unit_flag_stencil(make_nihang_symbol, size)
+    return make_unit_flag_from_source("Akali_Nihang_MapFlag_Source.png", size)
 
 
 def make_misldar_flag_stencil(size: int = 256) -> Image.Image:
-    return make_unit_flag_stencil(make_misldar_symbol, size)
+    return make_unit_flag_from_source("Misldar_Cavalry_MapFlag_Source.png", size)
 
 
 def make_nihang_symbol(size: int = 256) -> Image.Image:
