@@ -4,7 +4,7 @@ A custom Civilization VI mod that adds the Sikh Empire led by Maharaja Ranjit Si
 
 ## Current Working Version
 
-`v30` is the fully functional verified build. Civilization selection art, Dawn of Man loading art, civilization icons, leader icons, unit icons, building icons, ability icons, custom named places, unique units, and gameplay database loading are working correctly in Civilization VI with `Rise & Fall` and `Gathering Storm`.
+`v43` is the current fully functional build. Civilization selection art, Dawn of Man loading art, civilization icons, leader icons, unit icons, building icons, ability icons, custom named places, unique units, music aliasing, and gameplay database loading are working correctly in Civilization VI with `Rise & Fall` and `Gathering Storm`.
 
 ## Features
 
@@ -26,7 +26,7 @@ A custom Civilization VI mod that adds the Sikh Empire led by Maharaja Ranjit Si
 `Miri-Piri`
 
 - All land combat units ignore combat penalties from being wounded
-- Defeating enemy units grants Faith equal to 50% of the defeated unit's Combat Strength
+- Defeating enemy units grants Faith equal to 30% of the defeated unit's Combat Strength
 - Cities receive +15% Production toward military units
 
 ### Sikh Empire
@@ -38,7 +38,7 @@ A custom Civilization VI mod that adds the Sikh Empire led by Maharaja Ranjit Si
 - Farms adjacent to both a river and a Holy Site receive +1 Production
 - After researching `Irrigation`, river-adjacent Farms receive an additional +1 Food
 - Floodplains provide +1 Faith
-- All combat units receive +5 Combat Strength against units of a civilization following a rival majority religion
+- All combat units receive +5 Combat Strength against units of a civilization following any other religion
 
 ## Unique Content
 
@@ -57,7 +57,6 @@ A unique `Temple` replacement that provides:
 - +4 Faith
 - +2 Food
 - +1 Housing
-- +1 Great Prophet point per turn
 - +1 Great General point per turn
 
 ## Supported Rulesets
@@ -86,5 +85,5 @@ Then enable the mod from the in-game `Additional Content` menu.
 
 ## Notes
 
-- The mod uses Civilization VI's native rival-majority-religion combat hook for the religious combat bonus.
+- The mod uses Civilization VI's native other-religion combat hook for the religious combat bonus.
 - Civilization VI does not expose a stable fractional flood-damage reduction modifier for districts and improvements, so full flood immunity is not used.

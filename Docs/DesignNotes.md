@@ -18,7 +18,7 @@ The civ is intentionally top-tier. It has a strong river start, early farm faith
 
 ## Religion Combat Note
 
-Civilization VI combat units expose Spain's native "opponent is other religion" combat hook, but not a stable database requirement for "opponent follows a religion with more total followers than mine." The mod therefore keeps the functional Firaxis-supported rule: +5 Combat Strength against units of a civilization following a rival majority religion. This appears in the combat preview and avoids unsupported requirement rows.
+Civilization VI combat units expose Spain's native "opponent is other religion" combat hook, but not a stable database requirement for "opponent follows a religion with more total followers than mine." The mod therefore keeps the functional Firaxis-supported rule: +5 Combat Strength against units of a civilization following any other religion. This appears in the combat preview and avoids unsupported requirement rows.
 
 ## Flood Note
 

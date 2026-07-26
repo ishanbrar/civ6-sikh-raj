@@ -358,7 +358,7 @@ INSERT OR REPLACE INTO Modifiers (ModifierId, ModifierType) VALUES
 
 INSERT OR REPLACE INTO ModifierArguments (ModifierId, Name, Value) VALUES
   ('SIKH_MIRI_PIRI_FAITH_FROM_COMBAT', 'YieldType', 'YIELD_FAITH'),
-  ('SIKH_MIRI_PIRI_FAITH_FROM_COMBAT', 'PercentDefeatedStrength', '50'),
+  ('SIKH_MIRI_PIRI_FAITH_FROM_COMBAT', 'PercentDefeatedStrength', '30'),
   ('SIKH_MIRI_PIRI_GRANT_DISCIPLINE', 'AbilityType', 'ABILITY_SIKH_KHALSA_DISCIPLINE'),
   ('SIKH_MIRI_PIRI_UNIT_PRODUCTION', 'Amount', '15');
 
@@ -378,8 +378,11 @@ INSERT OR REPLACE INTO Building_YieldChanges (BuildingType, YieldType, YieldChan
   ('BUILDING_SIKH_GURDWARA_SAHIB', 'YIELD_FAITH', 4),
   ('BUILDING_SIKH_GURDWARA_SAHIB', 'YIELD_FOOD', 2);
 
+DELETE FROM Building_GreatPersonPoints
+WHERE BuildingType = 'BUILDING_SIKH_GURDWARA_SAHIB'
+  AND GreatPersonClassType = 'GREAT_PERSON_CLASS_PROPHET';
+
 INSERT OR REPLACE INTO Building_GreatPersonPoints (BuildingType, GreatPersonClassType, PointsPerTurn) VALUES
-  ('BUILDING_SIKH_GURDWARA_SAHIB', 'GREAT_PERSON_CLASS_PROPHET', 1),
   ('BUILDING_SIKH_GURDWARA_SAHIB', 'GREAT_PERSON_CLASS_GENERAL', 1);
 
 -- Unique units

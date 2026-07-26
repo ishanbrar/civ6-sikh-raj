@@ -9,10 +9,10 @@
     <Replace Tag="LOC_LOADING_INFO_LEADER_RANJIT_SINGH" Language="en_US"><Text>Maharaja Ranjit Singh, Lion of the Panjab, your people look to you for strength in war and resolve in spirit. Let the five rivers nourish your cities and your fields, while the Khalsa stands ready to defend the faithful and strike down all who threaten your realm. Rule with courage, balance the temporal sword with the light of faith, and your empire shall be remembered in glory.</Text></Replace>
 
     <Replace Tag="LOC_TRAIT_CIVILIZATION_SIKH_PANJAB_NAME" Language="en_US"><Text>Chardi Kala</Text></Replace>
-    <Replace Tag="LOC_TRAIT_CIVILIZATION_SIKH_PANJAB_DESCRIPTION" Language="en_US"><Text>Cities founded on or adjacent to a river receive +2 [ICON_Food] Food and +1 [ICON_Faith] Faith in the City Center. Farms adjacent to a river receive +1 [ICON_Faith] Faith. Farms adjacent to both a river and a Holy Site receive +1 [ICON_Production] Production. After researching Irrigation, river-adjacent Farms receive an additional +1 [ICON_Food] Food. Floodplains provide +1 [ICON_Faith] Faith. All combat units receive +5 [ICON_Strength] Combat Strength against units of a civilization following a rival majority religion.</Text></Replace>
+    <Replace Tag="LOC_TRAIT_CIVILIZATION_SIKH_PANJAB_DESCRIPTION" Language="en_US"><Text>Cities founded on or adjacent to a river receive +2 [ICON_Food] Food and +1 [ICON_Faith] Faith in the City Center. Farms adjacent to a river receive +1 [ICON_Faith] Faith. Farms adjacent to both a river and a Holy Site receive +1 [ICON_Production] Production. After researching Irrigation, river-adjacent Farms receive an additional +1 [ICON_Food] Food. Floodplains provide +1 [ICON_Faith] Faith. All combat units receive +5 [ICON_Strength] Combat Strength against units of a civilization following any other religion.</Text></Replace>
 
     <Replace Tag="LOC_TRAIT_LEADER_SIKH_MIRI_PIRI_NAME" Language="en_US"><Text>Miri-Piri</Text></Replace>
-    <Replace Tag="LOC_TRAIT_LEADER_SIKH_MIRI_PIRI_DESCRIPTION" Language="en_US"><Text>All land combat units ignore combat penalties from being wounded. Defeating enemy units grants [ICON_Faith] Faith equal to 50% of the defeated unit's Combat Strength. Cities receive +15% [ICON_Production] Production toward military units.</Text></Replace>
+    <Replace Tag="LOC_TRAIT_LEADER_SIKH_MIRI_PIRI_DESCRIPTION" Language="en_US"><Text>All land combat units ignore combat penalties from being wounded. Defeating enemy units grants [ICON_Faith] Faith equal to 30% of the defeated unit's Combat Strength. Cities receive +15% [ICON_Production] Production toward military units.</Text></Replace>
 
     <Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_SIKH_AKALI_NIHANG_NAME" Language="en_US"><Text>Akali Nihang</Text></Replace>
     <Replace Tag="LOC_TRAIT_CIVILIZATION_UNIT_SIKH_MISLDAR_CAVALRY_NAME" Language="en_US"><Text>Misldar Cavalry</Text></Replace>
@@ -29,11 +29,11 @@
     <Replace Tag="LOC_ABILITY_SIKH_MISLDAR_CAVALRY_DESCRIPTION" Language="en_US"><Text>Ignores combat penalties from being wounded, gains +4 [ICON_Strength] Combat Strength, and pillages for only 1 Movement.</Text></Replace>
 
     <Replace Tag="LOC_BUILDING_SIKH_GURDWARA_SAHIB_NAME" Language="en_US"><Text>Gurdwara Sahib</Text></Replace>
-    <Replace Tag="LOC_BUILDING_SIKH_GURDWARA_SAHIB_DESCRIPTION" Language="en_US"><Text>Sikh unique building that replaces the Temple. Provides +4 [ICON_Faith] Faith, +2 [ICON_Food] Food, +1 Housing, +1 Great Prophet point per turn, and +1 Great General point per turn.</Text></Replace>
+    <Replace Tag="LOC_BUILDING_SIKH_GURDWARA_SAHIB_DESCRIPTION" Language="en_US"><Text>Sikh unique building that replaces the Temple. Provides +4 [ICON_Faith] Faith, +2 [ICON_Food] Food, +1 Housing, and +1 Great General point per turn.</Text></Replace>
     <Replace Tag="LOC_ABILITY_SIKH_KHALSA_DISCIPLINE_NAME" Language="en_US"><Text>Khalsa Discipline</Text></Replace>
     <Replace Tag="LOC_ABILITY_SIKH_KHALSA_DISCIPLINE_DESCRIPTION" Language="en_US"><Text>Ignores combat penalties from being wounded.</Text></Replace>
     <Replace Tag="LOC_ABILITY_SIKH_COMBAT_BONUS_OTHER_RELIGION_NAME" Language="en_US"><Text>Defender of the Panth</Text></Replace>
-    <Replace Tag="LOC_ABILITY_SIKH_COMBAT_BONUS_OTHER_RELIGION_DESCRIPTION" Language="en_US"><Text>+5 [ICON_Strength] Combat Strength against units of a civilization following a rival majority religion.</Text></Replace>
+    <Replace Tag="LOC_ABILITY_SIKH_COMBAT_BONUS_OTHER_RELIGION_DESCRIPTION" Language="en_US"><Text>+5 [ICON_Strength] Combat Strength against units of a civilization following any other religion.</Text></Replace>
 
     <Replace Tag="LOC_CITY_NAME_LAHORE" Language="en_US"><Text>Lahore</Text></Replace>
     <Replace Tag="LOC_CITY_NAME_AMRITSAR" Language="en_US"><Text>Amritsar</Text></Replace>
